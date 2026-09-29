@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For MENNII ❤️</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Georgia,serif;background:#090414;color:#fff;overflow-x:hidden}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px 18px;position:relative}
+.card{width:min(720px,94vw);padding:35px 22px;text-align:center;background:#ffffff10;border:1px solid #ffffff25;border-radius:28px;backdrop-filter:blur(12px);box-shadow:0 20px 80px #0008}
+h1{font-size:clamp(42px,11vw,78px);margin:12px 0;background:linear-gradient(90deg,#fff,#ff9fc0,#fff);background-size:200%;color:transparent;background-clip:text;animation:shine 3s infinite}
+h2{font-size:32px}p{font-size:18px;line-height:1.7}
+button{border:0;border-radius:999px;padding:15px 26px;font-size:17px;font-weight:bold;color:#7b123d;background:white;cursor:pointer;box-shadow:0 8px 30px #ff6f9a55;margin:12px}
+.hidden{display:none!important}.fade{animation:fade 1.2s}.photo{width:190px;height:240px;object-fit:cover;border-radius:22px;border:4px solid white;box-shadow:0 15px 50px #0008}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}.gallery img{width:100%;height:210px;object-fit:cover;border-radius:20px;border:3px solid #fff;box-shadow:0 10px 30px #0006}
+.timeline{text-align:left;border-left:2px solid #ff82a9;padding-left:20px;margin:30px auto;max-width:580px}.memory{margin:22px 0}.memory b{color:#ff9dbb;font-size:21px}
+.heart{position:fixed;bottom:-40px;z-index:5;animation:up linear forwards;pointer-events:none}.star{position:fixed;width:3px;height:3px;background:white;border-radius:50%;opacity:.7}
+#musicBtn{position:fixed;right:15px;top:15px;z-index:20;border-radius:50%;width:48px;height:48px;padding:0}
+@keyframes up{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}@keyframes fade{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}@keyframes shine{50%{background-position:100%}}
+</style>
+</head>
+<body>
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
+<audio id="music" loop src="song/tum.mp3"></audio>
+
+<section id="start">
+<div class="card">
+<div style="font-size:70px">💌</div>
+<p>A LETTER I WROTE WITH LOVE...</p>
+<h1>For MENNII</h1>
+<p>No fancy words… just a few feelings that belong to you.❤️</p>
+<button onclick="openLetter()">Open My Letter💗</button>
+</div>
+</section>
+
+<section id="letter" class="hidden">
+<div class="card fade">
+<div style="font-size:60px">🌹</div>
+<h2>Hey Birthday Girl...</h2>
+<p>Today is special because you were born.
+But for me, it’s even more special because I get to call you mine.</p>
+<p>Thank you for becoming a beautiful part of my life,
+and for giving me so many moments worth remembering.❤️</p>
+<button onclick="showMemories()">Let’s Relive Our Little Moments✨</button>
+</div>
+</section>
+
+<section id="memories" class="hidden">
+<div class="card fade">
+<h2>Little Moments, Big Memories 📸</h2>
+<p></p>
+<div class="gallery">
+<img src="photos/photo1.jpeg">
+<img src="photos/photo2.jpg">
+<img src="photos/photo3.jpg">
+<img src="photos/photo4.jpeg">
+<img src="photos/photo5.jpg">
+<img src="photos/photo6.jpg">
+</div>
+<div class="timeline">
+
+</div>
+<button onclick="showWish()">Read Your Birthday Wish 🎂</button>
+</div>
+</section>
+
+<section id="wish" class="hidden">
+<div class="card fade">
+<img class="photo" src="photos/main.jpg">
+<h1>Happy Birthday, MENNII ❤️</h1>
+<p>May this year bring you everything your heart has ever wished for — endless happiness, beautiful moments, peaceful days, and dreams turning into reality. And through every moment, I just hope I’m there beside you, making your life a little brighter and loving you a little more with every passing day.❤️🥹</p><p>Keep smiling, keep shining, and never forget just how deeply you are loved.❤️✨</p>
+<button onclick="finalSurprise()">One Last Surprise 🎁</button>
+</div>
+</section>
+
+<section id="final" class="hidden">
+<div class="card fade">
+<div style="font-size:80px">❤️</div>
+<h1>I Love You❤️</h1>
+<p>Maybe I can’t promise that every day will be perfect. But I can promise that, whenever life gets hard, I’ll always want to be beside you — laughing with you, making memories with you, and choosing you, again and again.</p>
+<p style="font-size:25px">Happy Birthday, My Love.🌹</p>
+<p style="opacity:.7">This little surprise ends here… but my love for you doesn’t.❤️✨</p>
+</div>
+</section>
+
+<script>
+const music=document.getElementById('music');
+function hideAll(){['start','letter','memories','wish','final'].forEach(x=>document.getElementById(x).classList.add('hidden'))}
+function openLetter(){hideAll();document.getElementById('letter').classList.remove('hidden');document.getElementById('letter').scrollIntoView();startHearts()}
+function showMemories(){hideAll();document.getElementById('memories').classList.remove('hidden');document.getElementById('memories').scrollIntoView()}
+function showWish(){hideAll();document.getElementById('wish').classList.remove('hidden');document.getElementById('wish').scrollIntoView();startHearts()}
+function finalSurprise(){hideAll();document.getElementById('final').classList.remove('hidden');document.getElementById('final').scrollIntoView();startHearts()}
+function toggleMusic(){if(music.paused){music.play();document.getElementById('musicBtn').innerHTML='🔊'}else{music.pause();document.getElementById('musicBtn').innerHTML='🎵'}}
+function startHearts(){for(let i=0;i<45;i++){let e=document.createElement('div');e.className='heart';e.innerHTML=['❤️','💗','💕','✨','🌹'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.fontSize=15+Math.random()*25+'px';e.style.animationDuration=4+Math.random()*5+'s';e.style.animationDelay=Math.random()*3+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),10000)}}
+for(let i=0;i<80;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.opacity=Math.random();document.body.appendChild(s)}
+</script>
+</body>
+</html>
